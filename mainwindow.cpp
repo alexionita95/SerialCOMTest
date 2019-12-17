@@ -71,3 +71,8 @@ void MainWindow::on_pushButton_2_clicked()
         thread->sendData(data+"\n");
     }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    thread->toggle();
+}

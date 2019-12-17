@@ -71,7 +71,17 @@ void SerialThread::run()
 void SerialThread::sendData(QString data)
 {
 
- port->write(data.toLocal8Bit().data(),data.size());
+    port->write(data.toLocal8Bit().data(),data.size());
+}
+
+void SerialThread::toggle()
+{
+ ledOn = !ledOn;
+ QByteArray command;
+ command.append('c');
+ command.append(ledOn + '0');
+ command.append('\n');
+ port->write(command.data(),command.length());
 }
 
 void SerialThread::stop()

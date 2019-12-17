@@ -15,6 +15,7 @@ public:
     void stop();
     void run() override;
     void sendData(QString data);
+    void toggle();
 signals:
 void dataAvailable(QString data);
 void log(QString data);
@@ -22,6 +23,7 @@ void log(QString data);
 public slots:
 
 private:
+bool ledOn;
 QSerialPort* port;
 bool running;
 
